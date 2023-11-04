@@ -37,7 +37,7 @@ stage('Gmail') {
              to: 'ilakkiatakshu@gmail.com'
   }
 }
-
+}
     
 
   
