@@ -31,7 +31,7 @@ post{
             
         }
 }
-stage
+stage('Gmail')
 {
   steps
   {
