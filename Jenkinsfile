@@ -31,7 +31,13 @@ post{
             
         }
 }
-
+    stage('Gmail') {
+      steps {
+        emailext body: "*${currentBuild.currentResult}:* Job Name: ${env.JOB_NAME} || Build Number: ${env.BUILD_NUMBER}\nMore information at: ${env.BUILD_URL}",
+                subject: "Declarative Pipeline Build Success",
+                to: 'ilakkiatakshu@gmail.com'
+      }
+    }
 }
     
 
