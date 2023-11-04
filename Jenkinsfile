@@ -22,20 +22,22 @@ pipeline {
       }
     }
     
-  }
+  
 
 post{
       always{
             sh 'docker rm -f mypycont'
             sh 'docker run --name mypycont -d -p 3000:5000 my-flask'
             
-            emailext body: "*${currentBuild.currentResult}:* Job Name: ${env.JOB_NAME} || Build Number: ${env.BUILD_NUMBER}\nMore information at: ${env.BUILD_URL}",
-                     subject: "Declarative Pipeline Build Success",
-                     to: 'ilakkiatakshu@gmail.com',
-        
+        }
 }
-}
+   stage('Gmail')  {
+     steps {
+       emailext body: "*${currentBuild.currentResult}:* Job Name: ${env.JOB_NAME} || Build Number: ${env.BUILD_NUMBER}\nMore information at: ${env.BUILD_URL}",
+                subject: "Declarative Pipeline Build Success",
+                to: 'ilakkiatakshu@gmail.com'
+
+    }
+  }
+ }
     
-
-  
-
