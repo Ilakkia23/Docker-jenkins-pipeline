@@ -36,7 +36,7 @@ stage('Gmail')
     steps
     {
       emailext body: "*${currentBuild.currentResult}:* Job Name:
-                 ${env.JOB_NAME} || Build Number: ${env.BUILD_NUMBER}\N More
+                 ${env.JOB_NAME} || Build Number: ${env.BUILD_NUMBER}\n More
                 information at: ${env.BUILD_URL}",
       subject: "Declarative pipeline Build Success" ,
       to: 'ilakkiatakshu@gmail.com'
